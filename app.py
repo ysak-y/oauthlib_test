@@ -1,13 +1,14 @@
 from oauthlib.common import Request
 from oauthlib.oauth2 import AuthorizationCodeGrant, RequestValidator, BearerToken
 import os
+import sqlalchemy
 
 
 class MyRequestValidator(RequestValidator):
     def validate_client_id(self, client_id, request, *args, **kargs):
         return True
 
-client_id = os.env['TWITTER_CLIENT_ID']
+client_id = os.environ['TWITTER_CLIENT_ID']
 
 uri = ''
 body = {}
